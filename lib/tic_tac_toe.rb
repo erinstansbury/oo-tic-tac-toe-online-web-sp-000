@@ -110,23 +110,23 @@ def draw?
   end
 end
 
-def over?(board)
-  if won?(board) ||  draw?(board)
+def over?
+  if won? ||  draw?
     return true
-  elsif full?(board)
+  elsif full?
     return true
   else
     return false
   end
 end
 
-def winner(board)
+def winner
   index = []
-  index = won?(board)
+  index = won?
   if index == false
     return nil
   else
-    if board[index[0]] == "X"
+    if @board[index[0]] == "X"
       return "X"
     else
       return "O"
@@ -134,14 +134,14 @@ def winner(board)
   end
 end
 
-def play(board)
-  until over?(board) == true
-    turn(board)
+def play
+  until over? == true
+    turn
   end
 
-  if won?(board)
-    puts "Congratulations #{winner(board)}!"
-  elsif draw?(board)
+  if won?
+    puts "Congratulations #{winner}!"
+  elsif draw?
     puts "Cat's Game!"
   end
 end
